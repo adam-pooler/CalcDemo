@@ -39,11 +39,11 @@ This seems to exclude valid decimals like 0.01. However for the purposes of this
 ```
 digits::= '0' | non_zero_digit digits*
 ```
-would suggest it means zero or more (i.e. 3.1 is a valid decimal), however:
+would suggest it means zero or more (e.g. 3.1 is a valid decimal), however:
 ```
 expression* signed_decimal
 ```
-suggests 1 or more (i.e. at least one expression is required).
+suggests 1 or more (at least one expression is required here).
 
 3. The original design also encourages the use of whitespace to separate the terms in the implementation. While this will work, it would be more flexible to allow either e.g. '2 * 2' or '2*2'. The implementation included addresses this.
 
@@ -55,12 +55,15 @@ Created in vscode.
 
 The calculator works as follows: 
 - The command expression is passed to an instance of SimpleCalculator
-- The SimpleCalculator invokes the command parser, passing in the command to parse
+- The SimpleCalculator invokes its Evaluator to evaluate the expression. Evalutor is an abstract class with a single concrete implementation - SimpleCalcEngine. The intent is to make it straightforward to swap the calc engine implementation in future. 
+- The SimpleCalcEngine invokes the command parser, passing in the command to parse
 - The command parser pre-processes the command to remove all whitespace characters
-- The command parser invokes the StringTokenizer to split the input command into a series of tokens by identifying the operator characters and using these as the locations to split the string
+- The command parser invokes the StringTokenizer to split the input command into a series of tokens by identifying the operator characters and using these as the locations to split the string. 
 - The resulting tokens are used to build a series of Nodes - of type 'Number' or 'Operator' - abstractly representing the structure of the command
-- The abstract base class, and its concrete implementation 'SimpleCalcEngine' evaluates the nodes and returns the result. The result is returned as type 'object' as it could be either an int or a decimal
-- The SimpleCalculatorIntegration tests show the process working end-to-end
+- The SimpleCalcEngine evaluates the nodes and returns the result. The result is returned as type 'object' as it could be either an int or a decimal
+- The result is returned from the SimpleCalculator to the caller
+
+The SimpleCalculatorIntegration tests show the process working end-to-end
 
 ### Areas for Improvement
 

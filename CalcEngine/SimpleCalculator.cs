@@ -5,6 +5,12 @@ namespace CalcEngine
 {
     public class SimpleCalculator
     {
+        public SimpleCalculator()
+        {
+            CommandParser = new CommandParser();
+            Evaluator = new SimpleCalcEngine();
+        }
+
         public SimpleCalculator(CommandParser commandParser, Evaluator evaluator)
         {
             CommandParser = commandParser ?? throw new ArgumentNullException(nameof(commandParser));

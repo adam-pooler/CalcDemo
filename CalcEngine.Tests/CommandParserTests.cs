@@ -58,7 +58,7 @@ namespace CalcEngine.Tests
             Assert.Equal(5, (int)parsedNodes[2].Value);
         }
 
-                [Fact]
+        [Fact]
         public void CommandParser_Parse_With3Elements_AndRedundantPositiveNumberSymbolAndWhitespace_Returns3ParsedNodes()
         {
             var commandParser = new CommandParser();
@@ -81,6 +81,17 @@ namespace CalcEngine.Tests
 
         [Fact]
         public void CommandParser_Parse_WithInvalidOperator_ThrowsException()
+        {
+            var commandParser = new CommandParser();
+
+            Assert.Throws<CommandParsingFailedException>(() =>
+            {
+                INode[] parsedNodes = commandParser.Parse("5/5").ToArray();
+            });
+        }
+
+        [Fact]
+        public void CommandParser_Parse_WithTooManyOperators_ThrowsException()
         {
             var commandParser = new CommandParser();
 

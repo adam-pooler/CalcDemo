@@ -9,7 +9,7 @@ namespace CalcEngine
         {
         }
 
-        public override void EvaluateNode(LinkedListNode<INode> element, ref object result)
+        protected override void EvaluateNode(LinkedListNode<INode> element, ref object result)
         {
             if (element == null || element.Value == null)
                 throw new ArgumentOutOfRangeException(nameof(element));

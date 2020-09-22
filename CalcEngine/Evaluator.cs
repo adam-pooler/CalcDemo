@@ -22,7 +22,7 @@ namespace CalcEngine
             return result;
         }
 
-        public abstract void EvaluateNode(LinkedListNode<INode> current, ref object result);
+        protected abstract void EvaluateNode(LinkedListNode<INode> current, ref object result);
 
     }
 }

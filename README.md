@@ -58,7 +58,7 @@ The calculator works as follows:
 - The SimpleCalculator invokes its Evaluator to evaluate the expression. Evalutor is an abstract class with a single concrete implementation - SimpleCalcEngine. The intent is to make it straightforward to swap the calc engine implementation in future. 
 - The SimpleCalcEngine invokes the command parser, passing in the command to parse
 - The command parser pre-processes the command to remove all whitespace characters
-- The command parser invokes the StringTokenizer to split the input command into a series of tokens by identifying the operator characters and using these as the locations to split the string. 
+- The command parser invokes the StringTokenizer to split the input command into a series of tokens by identifying the operator characters and using these as the locations to split the string
 - The resulting tokens are used to build a series of Nodes - of type 'Number' or 'Operator' - abstractly representing the structure of the command
 - The SimpleCalcEngine evaluates the nodes and returns the result. The result is returned as type 'object' as it could be either an int or a decimal
 - The result is returned from the SimpleCalculator to the caller

@@ -14,8 +14,6 @@ namespace CalcEngine
             { "*", OperatorType.Multiply }
         };
 
-        private static readonly OperatorDefinitions instance = new OperatorDefinitions();
-
         public virtual OperatorType GetOperatorType(string value)
         {
             if (value == null)

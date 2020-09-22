@@ -49,9 +49,11 @@ suggests 1 or more (i.e. at least one expression is required).
 
 ## Updated Solution
 
+Created in vscode.
+
 ### Overview
 
-The solution works as follows: 
+The calculator works as follows: 
 - The command expression is passed to an instance of SimpleCalculator
 - The SimpleCalculator invokes the command parser
 - The command parser first pre-processes the command to remove all whitespace characters
@@ -62,7 +64,8 @@ The solution works as follows:
 
 ### Areas for Improvement
 
-- Unit Test coverage is not ideal - there are more edge cases for the command parsing which should be included in coverage.
+- Unit Test coverage is not perfect - there are more edge cases for the command parsing which should be included in coverage.
 - The CommandParser unit tests don't mock out the class dependencies. Unit tests should test the classes in isolation.
 - There is a hack (marked in the code) to cope with negative/positive number symbols in the CommandParser - this would be better handled within the Tokenizer. 
-- The node structure which represents the command is currently stored and evalulated in a linked list. In a real-world application, if the commands were likely to become more complex a more flexible representation could be produced using an expression tree e.g. using the Interpreter pattern.
+- The node structure which represents the command is currently stored and evalulated in a flat list. In a real-world application, if the commands were likely to become more complex a more flexible representation could be produced using an expression tree e.g. using the Interpreter pattern.
+

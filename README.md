@@ -55,8 +55,8 @@ Created in vscode.
 
 The calculator works as follows: 
 - The command expression is passed to an instance of SimpleCalculator
-- The SimpleCalculator invokes the command parser
-- The command parser first pre-processes the command to remove all whitespace characters
+- The SimpleCalculator invokes the command parser, passing in the command to parse
+- The command parser pre-processes the command to remove all whitespace characters
 - The command parser invokes the StringTokenizer to split the input command into a series of tokens by identifying the operator characters and using these as the locations to split the string
 - The resulting tokens are used to build a series of Nodes - of type 'Number' or 'Operator' - abstractly representing the structure of the command
 - The abstract base class, and its concrete implementation 'SimpleCalcEngine' evaluates the nodes and returns the result. The result is returned as type 'object' as it could be either an int or a decimal

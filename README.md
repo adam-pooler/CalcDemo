@@ -35,7 +35,7 @@ digits::= '0' | non_zero_digit digits*
 
 This seems to exclude valid decimals like 0.01. However for the purposes of this exercise, I've assumed all valid decimals should be allowed.
 
-1. It is also unclear whether the * operator means *zero or more*, or *one or more*:
+2. It is also unclear whether the * operator means *zero or more*, or *one or more*:
 ```
 digits::= '0' | non_zero_digit digits*
 ```
@@ -45,7 +45,7 @@ expression* signed_decimal
 ```
 suggests 1 or more (i.e. at least one expression is required).
 
-1. The original design also encourages the use of whitespace to separate the terms in the implementation. While this will work, it would be more flexible to allow either e.g. '2 * 2' or '2*2'. The implementation included addresses this.
+3. The original design also encourages the use of whitespace to separate the terms in the implementation. While this will work, it would be more flexible to allow either e.g. '2 * 2' or '2*2'. The implementation included addresses this.
 
 ## Updated Solution
 

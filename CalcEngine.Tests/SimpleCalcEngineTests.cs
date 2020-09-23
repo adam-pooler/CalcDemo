@@ -84,7 +84,7 @@ namespace CalcEngine.Tests
             Assert.IsType<decimal>(result);
             Assert.Equal(((10.1m - 3) * 2.5m), (decimal)result);
         }
-
+        
         [Fact]
         public void SimpleCalcEngine_Calculate_WithNullNodes_ThrowsException()
         {

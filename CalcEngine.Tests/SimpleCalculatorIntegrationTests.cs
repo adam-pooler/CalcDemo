@@ -1,6 +1,7 @@
 using System.Linq;
 using System;
 using Xunit;
+using System.Collections.Generic;
 
 namespace CalcEngine.Tests
 {
@@ -42,5 +43,22 @@ namespace CalcEngine.Tests
             Assert.IsType<int>(result);
             Assert.Equal(100, (int)result);
         }
+
+        [Fact]
+        public void SimpleCalculator_Calculate_WithAltOperatorGrammar_ReturnsCorrectResult()
+        {
+            var commandParser = new CommandParser(new OperatorDefinitions(new Dictionary<string, OperatorType>() 
+            {
+                { "add", OperatorType.Add },
+                { "subtract", OperatorType.Subtract },
+                { "times", OperatorType.Multiply }
+            }), new StringTokenizer());
+
+            var calc = new SimpleCalculator(commandParser, new SimpleCalcEngine());
+            var result = calc.Calculate("20 times 2 add 2");
+            Assert.IsType<int>(result);
+            Assert.Equal(42, (int)result);
+        }
+
     }
 }

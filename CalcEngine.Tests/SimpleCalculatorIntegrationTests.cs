@@ -60,5 +60,20 @@ namespace CalcEngine.Tests
             Assert.Equal(42, (int)result);
         }
 
+        [Fact]
+        public void SimpleCalculator_Calculate_WithAltOperatorGrammar_NoWhitespace_ReturnsCorrectResult()
+        {
+            var commandParser = new CommandParser(new OperatorDefinitions(new Dictionary<string, OperatorType>() 
+            {
+                { "add", OperatorType.Add },
+                { "subtract", OperatorType.Subtract },
+                { "times", OperatorType.Multiply }
+            }), new StringTokenizer());
+
+            var calc = new SimpleCalculator(commandParser, new SimpleCalcEngine());
+            var result = calc.Calculate("20times2add2");
+            Assert.IsType<int>(result);
+            Assert.Equal(42, (int)result);
+        }
     }
 }

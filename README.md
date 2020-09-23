@@ -71,4 +71,5 @@ The SimpleCalculatorIntegration tests show the process working end-to-end
 - The CommandParser unit tests don't mock out the class dependencies. Unit tests should test the classes in isolation.
 - There is a hack (marked in the code) to cope with negative/positive number symbols in the CommandParser - this would be better handled within the Tokenizer. 
 - The node structure which represents the command is currently stored and evalulated in a flat list. In a real-world application, if the commands were likely to become more complex a more flexible representation could be produced using an expression tree e.g. using the Interpreter pattern.
+- Expression evaluation is left-to-right - ignores natual operator precedence
 

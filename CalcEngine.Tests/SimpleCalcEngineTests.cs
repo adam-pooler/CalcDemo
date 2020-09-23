@@ -93,6 +93,5 @@ namespace CalcEngine.Tests
             Assert.Throws<ArgumentNullException>(() => calc.Evaluate(null));
         }
 
-
     }
 }

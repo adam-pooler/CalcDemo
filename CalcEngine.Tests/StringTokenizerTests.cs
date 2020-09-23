@@ -127,6 +127,15 @@ namespace CalcEngine.Tests
         }
 
         [Fact]
+        public void StringTokenizer_Tokenize_With2Elements_AndMultiCharacterDelimiter_ReturnsArrayOfLength2()
+        {
+            var Tokenizeter = new StringTokenizer();
+            string[] found = Tokenizeter.Tokenize("3 add 2 times 9", new string[] { "add", "times" }).ToArray();
+
+            Assert.Equal(5, found.Length);
+        }
+
+        [Fact]
         public void StringTokenizer_Tokenize_WithNullInput_ThrowsException()
         {
             var Tokenizeter = new StringTokenizer();
